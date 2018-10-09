@@ -39,7 +39,6 @@ class Package < ApplicationRecord
   def fill_out!
     CranParser.new(self).package_data.tap do |data|
       if data.present?
-        p data
         maintainer_mail_data = Mail::Address.new(data['Maintainer'])
         self.update_attributes!(
             authors: data['Author'],
