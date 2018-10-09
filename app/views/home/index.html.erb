@@ -1,0 +1,28 @@
+<table class='table' style='font-size: 12px'>
+  <thead>
+    <tr>
+      <td><strong>Name</strong></td>
+      <td><strong>Version</strong></td>
+      <td><strong>Publication Date</strong></td>
+      <td><strong>Title</strong></td>
+      <td><strong>Description</strong></td>
+      <td><strong>Authors</strong></td>
+      <td><strong>Maintainer</strong></td>
+      <td><strong>Maintainer Email</strong></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% Package.all.each do |pack| %>
+      <tr>
+        <td><%= pack.package_name %></td>
+        <td><%= pack.version %></td>
+        <td><%= pack.publication_date.try(:strftime, '%d.%m.%Y') %></td>
+        <td><%= pack.title %></td>
+        <td><%= pack.description %></td>
+        <td><%= pack.authors %></td>
+        <td><%= pack.maintainer_name %></td>
+        <td><%= pack.maintainer_email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
